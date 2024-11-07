@@ -45,14 +45,14 @@ public class MainActivity extends Activity {
             });
         }
         //6 如果想做成应用内悬浮球，可以添加以下代码。
-        getApplication().registerActivityLifecycleCallbacks(mActivityLifeCycleListener);
+        // getApplication().registerActivityLifecycleCallbacks(mActivityLifeCycleListener);
     }
 
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        mFloatballManager.show();
-        mFloatballManager.onFloatBallClick();
+        // mFloatballManager.show();
+        // mFloatballManager.onFloatBallClick();
     }
 
     @Override
@@ -225,6 +225,6 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         //注册ActivityLifeCyclelistener以后要记得注销，以防内存泄漏。
-        getApplication().unregisterActivityLifecycleCallbacks(mActivityLifeCycleListener);
+        // getApplication().unregisterActivityLifecycleCallbacks(mActivityLifeCycleListener);
     }
 }

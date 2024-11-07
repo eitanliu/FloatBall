@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 33
 
 
     defaultConfig {
         applicationId "com.huxq17.example.floatball.nopermissionapp"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
 

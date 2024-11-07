@@ -3,10 +3,10 @@ package com.huxq17.example.floatball;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.buyi.huxq17.serviceagency.annotation.ServiceAgent;
+// import com.buyi.huxq17.serviceagency.annotation.ServiceAgent;
 import com.huxq17.floatball.libarary.LocationService;
 
-@ServiceAgent
+// @ServiceAgent
 public class SimpleLocationService implements LocationService {
     private SharedPreferences sharedPreferences;
 

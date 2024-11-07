@@ -1,12 +1,12 @@
 apply plugin: 'com.android.application'
-apply plugin: 'service_agency'
+// apply plugin: 'service_agency'
 android {
-    compileSdkVersion 26
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.huxq17.example.floatball"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 33
         versionCode 1
         versionName "1.0"
     }

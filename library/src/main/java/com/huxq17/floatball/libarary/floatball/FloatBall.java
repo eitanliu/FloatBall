@@ -12,8 +12,6 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.buyi.huxq17.serviceagency.ServiceAgency;
-import com.buyi.huxq17.serviceagency.exception.AgencyException;
 import com.huxq17.floatball.libarary.FloatBallManager;
 import com.huxq17.floatball.libarary.FloatBallUtil;
 import com.huxq17.floatball.libarary.LocationService;
@@ -48,6 +46,7 @@ public class FloatBall extends FrameLayout implements ICarrier {
     private boolean mLayoutChanged = false;
     private int mSleepX = -1;
     private boolean isLocationServiceEnable;
+    private LocationService locationService;
     private OnceRunnable mSleepRunnable = new OnceRunnable() {
         @Override
         public void onRun() {
@@ -63,12 +62,12 @@ public class FloatBall extends FrameLayout implements ICarrier {
         super(context);
         this.floatBallManager = floatBallManager;
         mConfig = config;
-        try {
-            ServiceAgency.getService(LocationService.class);
-            isLocationServiceEnable = true;
-        } catch (AgencyException e) {
-            isLocationServiceEnable = false;
-        }
+        // try {
+        //     ServiceAgency.getService(LocationService.class);
+        //     isLocationServiceEnable = true;
+        // } catch (AgencyException e) {
+        //     isLocationServiceEnable = false;
+        // }
         init(context);
     }
 
@@ -175,8 +174,8 @@ public class FloatBall extends FrameLayout implements ICarrier {
         if (y < 0) y = topLimit;
         if (y > bottomLimit)
             y = topLimit;
-        if (isLocationServiceEnable) {
-            LocationService locationService = ServiceAgency.getService(LocationService.class);
+        if (isLocationServiceEnable && locationService != null) {
+            // LocationService locationService = ServiceAgency.getService(LocationService.class);
             int[] location = locationService.onRestoreLocation();
             if (location.length == 2) {
                 int locationX = location[0];
@@ -345,8 +344,8 @@ public class FloatBall extends FrameLayout implements ICarrier {
     @Override
     public void onDone() {
         postSleepRunnable();
-        if (isLocationServiceEnable) {
-            LocationService locationService = ServiceAgency.getService(LocationService.class);
+        if (isLocationServiceEnable && locationService != null) {
+            // LocationService locationService = ServiceAgency.getService(LocationService.class);
             locationService.onLocationChanged(mLayoutParams.x, mLayoutParams.y);
         }
     }
